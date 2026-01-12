@@ -46,7 +46,18 @@ export const Implementation = () => {
       {/* Top controls: rotate toggle, color selector, shape filter */}
       <div className="implementation-toolbar">
         {/* Controls will be added here in the next steps */}
-        Toolbar
+        <div className="implementation-toolbar">
+          <div className="toolbar-controls">
+            <button
+              className="rotate-toggle"
+              onClick={() => setIsRotated((prev) => !prev)}
+            >
+              Toggle
+            </button>
+            <select>Color</select>
+            <select>Filter</select>
+          </div>
+        </div>
       </div>
 
       <div className="implementation-body">
@@ -59,7 +70,14 @@ export const Implementation = () => {
         {/* Main content: SVG rendering area */}
         <main className="implementation-canvas">
           {selectedFloorplan ? (
-            <SvgRenderer floorplan={selectedFloorplan} />
+            <div
+              className="svg-wrapper"
+              style={{
+                transform: isRotated ? "rotate(180deg)" : "rotate(0deg)",
+              }}
+            >
+              <SvgRenderer floorplan={selectedFloorplan} />
+            </div>
           ) : (
             <div className="placeholder">Select location</div>
           )}

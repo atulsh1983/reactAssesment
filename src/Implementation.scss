@@ -5,10 +5,16 @@
   }
   
   .implementation-toolbar {
+    background-color: #3b82f6;
+    padding: 8px 0;
     display: flex;
+    justify-content: center;
+  }
+  
+  .toolbar-controls {
+    display: flex;
+    gap: 12px;
     align-items: center;
-    padding: 8px 12px;
-    border-bottom: 1px solid #ddd;
   }
   
   .implementation-body {
@@ -35,5 +41,18 @@
   .placeholder {
     color: #666;
     font-size: 14px;
+  }
+
+  .rotate-toggle {
+    background-color: #22c55e;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .svg-wrapper {
+    display: inline-block;
   }
   
