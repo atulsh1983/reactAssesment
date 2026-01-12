@@ -1,0 +1,34 @@
+.implementation {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .implementation-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .implementation-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .implementation-sidebar {
+    width: 240px;
+    border-right: 1px solid #ddd;
+    padding: 8px;
+    overflow-y: auto;
+  }
+  
+  .implementation-canvas {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+  }
+  
