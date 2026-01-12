@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Implementation.scss";
 import { LocationTree } from "./LocationTree";
 import { SvgRenderer } from "./SvgRenderer";
+import { getRandomHexColor, hexColorToGeneralName } from "./utils/colors";
 
 /**
  * Implementation tab is responsible for:
@@ -25,7 +26,10 @@ export const Implementation = () => {
    * Currently selected color applied to all SVG locations.
    * This state is global and must persist across SVG switches.
    */
-  const [selectedColor, setSelectedColor] = useState<string>("#000000");
+  const [selectedColor, setSelectedColor] = useState<string | null>(null);
+  const [availableColors] = useState<string[]>(() =>
+    Array.from({ length: 10 }, getRandomHexColor)
+  );
 
   /**
    * Controls whether the SVG is rotated by 180 degrees.
@@ -54,7 +58,18 @@ export const Implementation = () => {
             >
               Toggle
             </button>
-            <select>Color</select>
+            <select
+              value={selectedColor ?? ""}
+              onChange={(e) => setSelectedColor(e.target.value || null)}
+            >
+              <option value="">No color</option>
+
+              {availableColors.map((color) => (
+                <option key={color} value={color}>
+                  {hexColorToGeneralName(color)}
+                </option>
+              ))}
+            </select>
             <select>Filter</select>
           </div>
         </div>
@@ -76,7 +91,7 @@ export const Implementation = () => {
                 transform: isRotated ? "rotate(180deg)" : "rotate(0deg)",
               }}
             >
-              <SvgRenderer floorplan={selectedFloorplan} />
+              <SvgRenderer floorplan={selectedFloorplan} color={selectedColor} />
             </div>
           ) : (
             <div className="placeholder">Select location</div>
