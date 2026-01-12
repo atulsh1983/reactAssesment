@@ -32,29 +32,39 @@ export const SvgRenderer: React.FC<Props> = ({
   shapeFilter,
 }) => {
   useEffect(() => {
+    // Step 1: Hide all known locations by default (when filtering)
+    if (shapeFilter !== "all") {
+      LOCATION_IDS.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.style.display = "none";
+        }
+      });
+    }
+  
+    // Step 2: Apply color + show matching shapes
     LOCATION_IDS.forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
-
+  
       /* ---------- COLOR ---------- */
       if (color) {
         el.setAttribute("fill", color);
       } else {
         el.removeAttribute("fill");
       }
-
+  
       /* ---------- FILTER ---------- */
       let visible = true;
-
+  
       if (shapeFilter !== "all") {
-        const shapeType = LOCATION_SHAPE_MAP[id];
-        visible = shapeType === shapeFilter;
+        visible = LOCATION_SHAPE_MAP[id] === shapeFilter;
       }
-
+  
       el.style.display = visible ? "" : "none";
     });
   }, [color, shapeFilter, floorplan]);
-
+  
   switch (floorplan) {
     case "floor1.svg":
       return <Floor1 />;

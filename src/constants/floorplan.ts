@@ -8,8 +8,8 @@ export const LOCATION_SHAPE_MAP: Record<
   rect1410: "rect",
   rect1412: "rect",
 
-  path1529: "circle",
+  path1529: "star",
   path1585: "circle",
 
-  path15851: "star",
+  path15851: "circle",
 };
