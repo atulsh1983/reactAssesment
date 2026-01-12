@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import './Implementation.scss';
-import { LocationTree } from './LocationTree';
+import React, { useState } from "react";
+import "./Implementation.scss";
+import { LocationTree } from "./LocationTree";
+import { SvgRenderer } from "./SvgRenderer";
 
 /**
  * Implementation tab is responsible for:
@@ -16,14 +17,15 @@ export const Implementation = () => {
    * Selected building identifier from the location tree.
    * When this changes, a different SVG will be rendered.
    */
-  const [selectedFloorplan, setSelectedFloorplan] = useState<string | null>(null);
-
+  const [selectedFloorplan, setSelectedFloorplan] = useState<string | null>(
+    null
+  );
 
   /**
    * Currently selected color applied to all SVG locations.
    * This state is global and must persist across SVG switches.
    */
-  const [selectedColor, setSelectedColor] = useState<string>('#000000');
+  const [selectedColor, setSelectedColor] = useState<string>("#000000");
 
   /**
    * Controls whether the SVG is rotated by 180 degrees.
@@ -36,8 +38,8 @@ export const Implementation = () => {
    * Used to show/hide shapes by type.
    */
   const [activeShapeFilter, setActiveShapeFilter] = useState<
-    'all' | 'circle' | 'rect' | 'star'
-  >('all');
+    "all" | "circle" | "rect" | "star"
+  >("all");
 
   return (
     <div className="implementation">
@@ -56,8 +58,11 @@ export const Implementation = () => {
 
         {/* Main content: SVG rendering area */}
         <main className="implementation-canvas">
-          {/* SVG renderer will be mounted here */}
-          Canvas
+          {selectedFloorplan ? (
+            <SvgRenderer floorplan={selectedFloorplan} />
+          ) : (
+            <div className="placeholder">Select location</div>
+          )}
         </main>
       </div>
     </div>
