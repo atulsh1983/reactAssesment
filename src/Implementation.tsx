@@ -70,7 +70,19 @@ export const Implementation = () => {
                 </option>
               ))}
             </select>
-            <select>Filter</select>
+            <select
+              value={activeShapeFilter}
+              onChange={(e) =>
+                setActiveShapeFilter(
+                  e.target.value as "all" | "circle" | "rect" | "star"
+                )
+              }
+            >
+              <option value="all">All</option>
+              <option value="star">Stars</option>
+              <option value="rect">Rectangles</option>
+              <option value="circle">Circles</option>
+            </select>
           </div>
         </div>
       </div>
@@ -91,7 +103,11 @@ export const Implementation = () => {
                 transform: isRotated ? "rotate(180deg)" : "rotate(0deg)",
               }}
             >
-              <SvgRenderer floorplan={selectedFloorplan} color={selectedColor} />
+              <SvgRenderer
+                floorplan={selectedFloorplan}
+                color={selectedColor}
+                shapeFilter={activeShapeFilter}
+              />
             </div>
           ) : (
             <div className="placeholder">Select location</div>
