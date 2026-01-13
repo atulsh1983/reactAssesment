@@ -1,37 +1,65 @@
+/* Tree container */
 .location-tree {
-    font-size: 14px;
-  }
-  
-  .tree-root,
-  .tree-children {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-  }
-  
-  .tree-children {
-    padding-left: 16px;
-  }
-  
-  .tree-row {
-    display: flex;
-    align-items: center;
-    padding: 6px 8px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .tree-row:hover {
-    background-color: #8db6cd; // hover-only highlight
-  }
-  
-  .caret {
-    width: 16px;
-    margin-right: 4px;
-    font-size: 12px;
-  }
-  
-  .label {
-    white-space: nowrap;
-  }
-  
+  font-size: 14px;
+}
+
+/* Reset lists */
+.tree-root,
+.tree-children {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Reduced indentation (matches reference better) */
+.tree-children {
+  padding-left: 12px;
+}
+
+/* Tree row as compact anchored card */
+.tree-row {
+  display: flex;
+  align-items: center;
+
+  background-color: #ffffff;
+  border-radius: 4px;
+
+  padding: 6px 10px;
+  margin-bottom: 6px;
+
+  cursor: pointer;
+
+  /* Softer, flatter shadow (less floating) */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+
+  transition: background-color 0.15s ease;
+}
+
+/* Hover-only highlight */
+.tree-row:hover {
+  background-color: #bfdbfe;
+}
+
+/* Caret icon */
+.caret {
+  width: 14px;
+  margin-right: 6px;
+  font-size: 11px;
+  color: #111827;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Text label */
+.label {
+  color: #111827;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Remove any accidental focus outline */
+.tree-row:focus {
+  outline: none;
+}

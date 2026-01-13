@@ -1,96 +1,106 @@
+/* Root container */
 .implementation {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  
-  .implementation-toolbar {
-    background-color: #3b82f6;
-    padding: 8px 0;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .toolbar-controls {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-  }
-  
-  .implementation-body {
-    display: flex;
-    flex: 1;
-    overflow: hidden;
-  }
-  
-  .implementation-sidebar {
-    width: 240px;
-    border-right: 1px solid #ddd;
-    padding: 8px;
-    overflow-y: auto;
-  }
-  
-  .implementation-canvas {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: auto;
-  }
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #ffffff;
+}
 
-  .placeholder {
-    color: #666;
-    font-size: 14px;
-  }
+/* =========================
+   TOP TOOLBAR
+   ========================= */
+.implementation-toolbar {
+  background-color: #3b82f6; /* blue bar */
+  padding: 8px 16px;
+}
 
-  .rotate-toggle {
-    background-color: #22c55e;
-    color: #fff;
-    border: none;
-    padding: 6px 14px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .svg-wrapper {
-    display: inline-block;
-  }
+.toolbar-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
 
-  .toolbar-select {
-    background-color: #60a5fa;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-  
-    padding: 6px 36px 6px 12px;
-    font-size: 14px;
-    cursor: pointer;
-  
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  
-    /* Chevron-style arrow (NOT solid) */
-    background-image: url("data:image/svg+xml;utf8,\
-    <svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'>\
-      <polyline points='1,1 6,6 11,1' fill='none' stroke='white' stroke-width='1.5'/>\
-    </svg>");
-  
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 12px 8px;
-  }
+/* Toggle button */
+.rotate-toggle {
+  background-color: #22c55e;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
 
-  .toolbar-select:focus {
-    outline: none;
-  }
+.rotate-toggle:hover {
+  background-color: #16a34a;
+}
 
-  .toolbar-select option {
-    background-color: #60a5fa; /* same blue as toolbar */
-    color: #ffffff;
-  }
-  
-  .toolbar-select option:hover {
-    background-color: #1d4ed8; /* slightly darker blue */
-  }
-  
+/* Dropdowns */
+.toolbar-controls select {
+  appearance: none;
+  background-color: #60a5fa;
+  color: #ffffff;
+
+  border: none;
+  border-radius: 4px;
+
+  padding: 6px 28px 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='white' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 10px 6px;
+}
+
+.toolbar-controls select:hover {
+  background-color: #3b82f6;
+}
+
+/* =========================
+   BODY LAYOUT
+   ========================= */
+.implementation-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* =========================
+   LEFT PANEL (NO SCROLL)
+   ========================= */
+.implementation-sidebar {
+  width: 400px;
+  background-color: #f3f4f6;
+  padding: 8px;
+  box-sizing: border-box;
+
+  /* Explicitly NO scroll */
+  overflow: hidden;
+
+  min-height: calc(100vh - 48px); /* toolbar height */
+}
+
+/* =========================
+   MAIN SVG AREA
+   ========================= */
+.implementation-canvas {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.svg-wrapper {
+  transition: transform 0.3s ease;
+}
+
+.placeholder {
+  font-size: 14px;
+  color: #6b7280;
+}
