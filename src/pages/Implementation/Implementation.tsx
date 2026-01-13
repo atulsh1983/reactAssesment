@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Implementation.scss";
-import { LocationTree } from "./LocationTree";
-import { SvgRenderer } from "./SvgRenderer";
-import { getRandomHexColor, hexColorToGeneralName } from "./utils/colors";
+import { LocationTree } from "../../components/LocationTree/LocationTree";
+import { SvgRenderer } from "../../components/SvgRenderer/SvgRenderer";
+import { getRandomHexColor, hexColorToGeneralName } from "../../utils/colors";
 
 /**
  * Implementation tab is responsible for:

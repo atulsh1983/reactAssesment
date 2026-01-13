@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './App.scss';
-import { Description } from "./Description";
+import { Description } from "./pages/Description/Description";
 import { TABS, Tab } from './constants/tabs';
-import Implementation from './Implementation';
+import Implementation from './pages/Implementation/Implementation';
 
 
 

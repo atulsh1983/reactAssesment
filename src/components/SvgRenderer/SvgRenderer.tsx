@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import {
   LOCATION_IDS,
   LOCATION_SHAPE_MAP,
-} from "./constants/floorplan";
+} from "../../constants/floorplan";
 
 // Import SVGs as React components
-import { ReactComponent as Floor1 } from "./assets/floor1.svg";
-import { ReactComponent as Floor2 } from "./assets/floor2.svg";
-import { ReactComponent as Floor3 } from "./assets/floor3.svg";
-import { ReactComponent as FloorPlan } from "./assets/floor_plan.svg";
+import { ReactComponent as Floor1 } from "../../assets/floor1.svg";
+import { ReactComponent as Floor2 } from "../../assets/floor2.svg";
+import { ReactComponent as Floor3 } from "../../assets/floor3.svg";
+import { ReactComponent as FloorPlan } from "../../assets/floor_plan.svg";
 
 type ShapeFilter = "all" | "circle" | "rect" | "star";
 

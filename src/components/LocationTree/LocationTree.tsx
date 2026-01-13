@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { locationsData } from './data/locations';
+import { locationsData } from '../../data/locations';
 import './LocationTree.scss';
 
 type LocationNode = {
