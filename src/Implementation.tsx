@@ -61,6 +61,7 @@ export const Implementation = () => {
             <select
               value={selectedColor ?? ""}
               onChange={(e) => setSelectedColor(e.target.value || null)}
+              className="toolbar-select"
             >
               <option value="">No color</option>
 
@@ -77,6 +78,7 @@ export const Implementation = () => {
                   e.target.value as "all" | "circle" | "rect" | "star"
                 )
               }
+              className="toolbar-select"
             >
               <option value="all">All</option>
               <option value="star">Stars</option>
